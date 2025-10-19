@@ -3,11 +3,9 @@
 #include<iomanip>
 using namespace std;
 
-//Calcul d'equation quadratique
 
 int main() {
 	double a, b, c;
-	cout << " Calcule d'equation sous la forme: ax^2+bx+c = 0 " << endl;
 
 	cout << "==========================================" << endl;
 	cout << " Calcul d'equation : ax^2 + bx + c = 0" << endl;
@@ -45,7 +43,19 @@ int main() {
 		cout << "L'equation admet une solution unique\nx0 = " << x0;
 	}
 	else {
-		cout << "!!! L'equation n'admet pas de solution reel !!!";
+		// SOLUTIONS COMPLEXES
+		double partieReelle = -b / (2 * a);
+		double partieImaginaire = sqrt(-delta) / (2 * a);
+		
+		cout << " Deux solutions complexes conjuguees :" << endl;
+		cout << "z₁ = " << partieReelle << " + " << partieImaginaire << "i" << endl;
+		cout << "z₂ = " << partieReelle << " - " << partieImaginaire << "i" << endl;
+		
+		// Vérification (optionnelle)
+		cout << "\n Verification :" << endl;
+		cout << "z₁ + z₂ = " << 2 * partieReelle << " (doit etre = " << -b / a << ")" << endl;
+		cout << "z₁ × z₂ = " << partieReelle * partieReelle + partieImaginaire * partieImaginaire
+			 << " (doit etre = " << c / a << ")" << endl;
 	}
 
 
