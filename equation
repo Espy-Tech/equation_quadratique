@@ -1,0 +1,53 @@
+#include <iostream>
+#include<cmath>
+#include<iomanip>
+using namespace std;
+
+//Calcul d'equation quadratique
+
+int main() {
+	double a, b, c;
+	cout << " Calcule d'equation sous la forme: ax^2+bx+c = 0 " << endl;
+
+	cout << "==========================================" << endl;
+	cout << " Calcul d'equation : ax^2 + bx + c = 0" << endl;
+	cout << "==========================================" << endl;
+
+	cout << "a = ";
+	cin >> a;
+
+	//garanti de la valeur de a
+	while (a == 0) {
+		cout << "a n'est pas valide !!!\na = ";
+		cin >> a;
+	}
+
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+
+	double delta;
+	double x1, x2, x0;
+
+
+	delta = b * b - 4 * a * c;
+	cout << fixed << setprecision(1);  // Pour l'affichage
+	cout << "\nDiscriminant = " << delta << endl;
+
+	if (delta > 0) {
+		x1 = (-b - sqrt(delta)) / (2 * a);
+		x2 = (-b + sqrt(delta)) / (2 * a);
+		cout << "L'eqution admet une solution double\nx1 = " << x1 << "\nx2 = " << x2;
+	}
+	else if (delta == 0) {
+		x0 = -b / (2 * a);
+		cout << "L'equation admet une solution unique\nx0 = " << x0;
+	}
+	else {
+		cout << "!!! L'equation n'admet pas de solution reel !!!";
+	}
+
+
+	return 0;
+}
